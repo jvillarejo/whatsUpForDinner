@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  cooking_times: 1
+  favourite: 1
+  guide: MyText
+
+two:
+  name: MyString
+  cooking_times: 1
+  favourite: 1
+  guide: MyText

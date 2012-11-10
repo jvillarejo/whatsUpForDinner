@@ -1,4 +1,6 @@
 Whatsfordinner::Application.routes.draw do
+  resources :recipes
+
   get "home/index"
   
   root :to => "home#index"
