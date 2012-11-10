@@ -4,4 +4,8 @@ class Recipe < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :ocassions, :feelings
   
+  def all_tags
+    tag_name = lambda { |tag| tag.name }
+    ocassions.collect(&tag_name) + feelings.collect(&tag_name)
+  end
 end
