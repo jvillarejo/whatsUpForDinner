@@ -38,3 +38,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'acts-as-taggable-on', '~> 2.3.1'
+
+group :development, :test do
+  gem 'rspec-rails'
+end
