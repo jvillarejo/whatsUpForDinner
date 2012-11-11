@@ -1,7 +1,5 @@
-<h1>The Yummy Wizard</h1>
-<div id="container">
+<div id=tag_container" class="span2 offset3">
   <%= form_tag(recipes_path + '/feelings', :method => "get") do %>
     <%= text_field_tag('search_input', 'What you wanna taste...') %>
-    <%= submit_tag("Go on!!") %>
   <% end %>
 </div>
