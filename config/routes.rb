@@ -5,6 +5,10 @@ Whatsfordinner::Application.routes.draw do
   
   root :to => "home#index"
   
+  match 'feelings' => 'home#feelings'
+  match 'ocassions' => 'home#ocassions'
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

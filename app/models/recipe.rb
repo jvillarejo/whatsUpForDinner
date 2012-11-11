@@ -8,4 +8,12 @@ class Recipe < ActiveRecord::Base
     tag_name = lambda { |tag| tag.name }
     ocassions.collect(&tag_name) + feelings.collect(&tag_name)
   end
+  
+  def self.feelings
+    self.feeling_counts
+  end
+  
+  def self.ocassions
+    self.ocassion_counts
+  end
 end

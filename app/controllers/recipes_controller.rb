@@ -84,4 +84,5 @@ class RecipesController < ApplicationController
   def by_tag
   
   end
+  
 end

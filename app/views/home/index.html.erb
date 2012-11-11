@@ -1,5 +1,45 @@
-<div id=tag_container" class="span2 offset3">
-  <%= form_tag(recipes_path + '/feelings', :method => "get") do %>
-    <%= text_field_tag('search_input', 'What you wanna taste...') %>
-  <% end %>
+<div id="tag_container" class="span offset2">
+  
 </div>
+
+
+
+<span id="hidden_span" />
+<script>
+    var ocassion;
+    var feeling;
+    $(window).load(function() { 
+      url = "/ocassions.json";
+      $.getJSON(url,[],success) ;
+      
+    });
+    
+    function success(data, textStatus, jqXHR) {
+      for (var i = 0; i<data.length; i++) {
+        var ocassion = data[i];
+        var link = '<a class="btn" id="' + ocassion.name + '" title="' + ocassion.name + '" onClick="onOcassionClick(this.id)"><span>' + ocassion.name + '</span></a>';
+        $('#tag_container').append(link).fadeIn(800);
+      }
+    }
+    
+    function onOcassionClick(string) {
+      ocassion = string;
+      
+      $('#tag_container').empty().fadeOut(800);
+      url = "/feelings.json";
+      $.getJSON(url,[],successFeelings) ;
+    }
+    
+    function successFeelings(data, textStatus, jqXHR) {
+      for (var i = 0; i<data.length; i++) {
+        var feeling = data[i];
+        var link = '<a class="btn" id="' + feeling.name + '" title="' + feeling.name + '" onClick="onFeelingClick(this.id)"><span>' + feeling.name + '</span></a>';
+        $('#tag_container').append(link).fadeIn(800);
+      }
+    }
+    
+    function onFeelingClick(string) {
+      feeling = string;
+      window.location = '/recipes?feeling=' + feeling + '&ocassion=' + ocassion
+    }
+</script>
