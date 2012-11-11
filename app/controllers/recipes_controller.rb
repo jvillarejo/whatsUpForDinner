@@ -2,8 +2,15 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
-
+    ocassion = params[:ocassion]
+    feeling = params[:feeling]
+    
+    if(ocassion.nil? && feeling.nil?) 
+      @recipes = Recipe.all
+    else
+      @recipes = Recipe.tagged_with([ocassion, feeling])
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recipes }
