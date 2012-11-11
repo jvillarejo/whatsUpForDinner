@@ -20,6 +20,19 @@
   <%= @recipe.guide %>
 </p>
 
+<p>
+  <b>Ocassion:</b>
+  <% @recipe.ocassions.each do |tag| %>
+    <%= link_to tag.name, recipes_path(:ocassion => tag) %>
+  <% end %>
+</p>
+
+<p>
+  <b>Feelings:</b>
+  <% @recipe.feelings.each do |tag| %>
+    <%= link_to tag.name, recipes_path(:feeling => tag) %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

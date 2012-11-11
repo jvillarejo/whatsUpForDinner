@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  attr_accessible :cooking_times, :favourite, :guide, :name
+  attr_accessible :cooking_times, :favourite, :guide, :name, :ocassion_list, :feeling_list
   
   acts_as_taggable
   acts_as_taggable_on :ocassions, :feelings
